@@ -5,7 +5,8 @@ RUN apk add --no-cache --virtual .ext-deps \
         libwebp-dev \
         libpng-dev \
         freetype-dev \
-        libmcrypt-dev
+        libmcrypt-dev \
+        nodejs
 
 RUN docker-php-ext-configure pdo_mysql && \
     docker-php-ext-configure opcache && \
