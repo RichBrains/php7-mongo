@@ -6,7 +6,8 @@ RUN apk add --no-cache --virtual .ext-deps \
         libpng-dev \
         freetype-dev \
         libmcrypt-dev \
-        nodejs
+        nodejs \
+        git
 
 RUN docker-php-ext-configure pdo_mysql && \
     docker-php-ext-configure opcache && \
@@ -35,7 +36,7 @@ COPY php-fpm.conf  /etc/php7/php-fpm.conf
 RUN ln -s /usr/bin/php7 /usr/bin/php
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 EXPOSE 9000
 
